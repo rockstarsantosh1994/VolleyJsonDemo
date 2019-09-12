@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VolleyJsonDemo</string>
+    <string name="searchhere">Search here.....</string>
 </resources>

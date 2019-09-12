@@ -35,16 +35,19 @@ public class FlatDataAdapter extends RecyclerView.Adapter<FlatDataAdapter.FlatDa
     @Override
     public void onBindViewHolder(@NonNull FlatDataViewHolder holder, int position) {
        Flat flat=data.get(position);
-       holder.tvFlatno.setText(flat.getFlat_id());
-       holder.tvOwnerName.setText(flat.getOwner_name());
-       holder.tvOwnerEmail.setText(flat.getOwner_email());
-       holder.tv_OwnerContactNo.setText(flat.getOwner_contact_no());
+       holder.tvFlatno.setText(flat.getVisitor_type_id());
+       holder.tvOwnerName.setText(flat.getVisitor_type());
+       holder.tvOwnerEmail.setText(flat.getStatus());
+      // holder.tv_OwnerContactNo.setText(flat.getOwner_contact_no());
     }
 
     @Override
     public int getItemCount() {
         return data.size();
     }
+
+
+
 
     public class FlatDataViewHolder extends RecyclerView.ViewHolder{
 
@@ -58,4 +61,11 @@ public class FlatDataAdapter extends RecyclerView.Adapter<FlatDataAdapter.FlatDa
             tv_OwnerContactNo=itemView.findViewById(R.id.tv4);
         }
     }
+
+    public void updateData(Context context,ArrayList<Flat> data) {
+        this.context=context;
+        this.data = data;
+        notifyDataSetChanged();
+    }
+
 }
